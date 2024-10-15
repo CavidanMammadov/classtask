@@ -1,0 +1,74 @@
+//3 class-nız olur.Vehicle, Car, Motorcycle. Car və Motorcycle Vehicle-dan miras alır.
+
+//Vehicle class:
+//==============
+//string Brand 
+//string Model 
+//double Mile 
+
+//Car class: Vehicle
+//int DoorsNum 
+//ShowFullInfo()
+
+//MotorCycle class: Vehicle
+//int WheelNum 
+//ShowFullInfo()
+
+
+//Brand ve Model teyin edilmeden, Car ve Bicycle obyekti yaratmaq olmasin.
+
+namespace classtask1.cs
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Car car = new Car("mercedes", "cls63");
+            car.showFullInfo();
+
+        }
+        class Car : Vehicle
+        {
+            public int doorsNum;
+
+            public Car(string brand, string model) : base(brand, model)
+            {
+                this.brand = brand;
+                this.model = model;
+            }
+            public void showFullInfo()
+            {
+                Console.WriteLine($"brand:{brand} model:{model} MILE:{mile} doorsNum{doorsNum}");
+            }
+
+        }
+        class Motorcycle : Vehicle
+        {
+            public int wheelNum;
+
+            public Motorcycle(string brand, string model) : base(brand, model)
+            {
+                this.brand = brand;
+                this.model = model;
+            }
+
+            public void showFullInfo()
+            {
+                Console.WriteLine($"brand:{brand} model:{model} MILE:{mile} WheelNum{wheelNum}");
+            }
+        }
+        class Vehicle
+        {
+            public string brand;
+            public string model;
+            public double mile;
+            public Vehicle(string brand, string model)
+            {
+                this.model = model;
+                this.brand = brand;
+
+            }
+
+        }
+    }
+}
